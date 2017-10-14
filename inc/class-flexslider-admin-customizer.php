@@ -31,7 +31,7 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 	 *
 	 * @return void
 	 */
-	function customize_register( $wp_customize ) {
+	public function customize_register( $wp_customize ) {
 		$wp_customize->add_section( 'fsa-slides', array(
 			'title' => esc_html__( 'Slider', 'textdomain' ),
 		) );
@@ -39,15 +39,15 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		// Animation Type.
 		$wp_customize->add_setting( 'fsa-slides_animation', array(
 			'sanitize_callback' => 'sanitize_key',
-			'default' => 'fade',
+			'default'           => 'fade',
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_animation', array(
-			'type' => 'select',
+			'type'    => 'select',
 			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Animation Type' ),
+			'label'   => esc_html__( 'Animation Type' ),
 			'choices' => array(
-				'fade' => esc_html__( 'Fade', 'textdomain' ),
+				'fade'  => esc_html__( 'Fade', 'textdomain' ),
 				'slide' => esc_html__( 'Slide', 'textdomain' ),
 			),
 		) );
@@ -55,16 +55,16 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		// Easing.
 		$wp_customize->add_setting( 'fsa-slides_easing', array(
 			'sanitize_callback' => 'sanitize_key',
-			'default' => 'swing',
+			'default'           => 'swing',
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_easing', array(
-			'type' => 'select',
-			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Easing Animation' ),
+			'type'        => 'select',
+			'section'     => 'fsa-slides',
+			'label'       => esc_html__( 'Easing Animation' ),
 			'description' => esc_html__( 'Easing specifies the speed at which the animation progresses at different points within the animation.', 'textdomain' ),
-			'choices' => array(
-				'swing' => esc_html__( 'Swing', 'textdomain' ),
+			'choices'     => array(
+				'swing'  => esc_html__( 'Swing', 'textdomain' ),
 				'linear' => esc_html__( 'Linear', 'textdomain' ),
 			),
 		) );
@@ -72,16 +72,16 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		// Direction.
 		$wp_customize->add_setting( 'fsa-slides_direction', array(
 			'sanitize_callback' => 'sanitize_key',
-			'default' => 'horizontal',
+			'default'           => 'horizontal',
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_direction', array(
-			'type' => 'select',
+			'type'    => 'select',
 			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Animation Direction' ),
+			'label'   => esc_html__( 'Animation Direction' ),
 			'choices' => array(
 				'horizontal' => esc_html__( 'Horizontal', 'textdomain' ),
-				'vertical' => esc_html__( 'Vertical', 'textdomain' ),
+				'vertical'   => esc_html__( 'Vertical', 'textdomain' ),
 			),
 		) );
 
@@ -91,13 +91,13 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_speed', array(
-			'type' => 'number',
-			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Slideshow Speed' ),
+			'type'        => 'number',
+			'section'     => 'fsa-slides',
+			'label'       => esc_html__( 'Slideshow Speed' ),
 			'description' => esc_html__( 'Set the speed of the slideshow cycling, in seconds.', 'textdomain' ),
 			'input_attrs' => array(
-				'min' => 0.1,
-				'max' => 60,
+				'min'  => 0.1,
+				'max'  => 60,
 				'step' => 0.1,
 			),
 		) );
@@ -108,13 +108,13 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_animation_speed', array(
-			'type' => 'number',
-			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Animation Speed' ),
+			'type'        => 'number',
+			'section'     => 'fsa-slides',
+			'label'       => esc_html__( 'Animation Speed' ),
 			'description' => esc_html__( 'Set the speed of animations, in seconds.', 'textdomain' ),
 			'input_attrs' => array(
-				'min' => 0.1,
-				'max' => 10,
+				'min'  => 0.1,
+				'max'  => 10,
 				'step' => 0.1,
 			),
 		) );
@@ -125,13 +125,13 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_start_delay', array(
-			'type' => 'number',
-			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Start Delay' ),
+			'type'        => 'number',
+			'section'     => 'fsa-slides',
+			'label'       => esc_html__( 'Start Delay' ),
 			'description' => esc_html__( 'Set an initialization delay, in seconds.', 'textdomain' ),
 			'input_attrs' => array(
-				'min' => 0.1,
-				'max' => 60,
+				'min'  => 0.1,
+				'max'  => 60,
 				'step' => 0.1,
 			),
 		) );
@@ -142,9 +142,9 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_reverse', array(
-			'type' => 'checkbox',
+			'type'    => 'checkbox',
 			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Reverse the animation direction' ),
+			'label'   => esc_html__( 'Reverse the animation direction' ),
 		) );
 
 		// Randomize Slides.
@@ -153,9 +153,9 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_randomize', array(
-			'type' => 'checkbox',
+			'type'    => 'checkbox',
 			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Randomize slide order' ),
+			'label'   => esc_html__( 'Randomize slide order' ),
 		) );
 
 		// Pause on Interaction.
@@ -164,9 +164,9 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_pause_interaction', array(
-			'type' => 'checkbox',
-			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Pause on Interaction' ),
+			'type'        => 'checkbox',
+			'section'     => 'fsa-slides',
+			'label'       => esc_html__( 'Pause on Interaction' ),
 			'description' => esc_html__( 'Pause the slideshow when interacting with control elements, highly recommended.', 'textdomain' ),
 		) );
 
@@ -176,9 +176,9 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		) );
 
 		$wp_customize->add_control( 'fsa-slides_pause_hover', array(
-			'type' => 'checkbox',
-			'section' => 'fsa-slides',
-			'label' => esc_html__( 'Pause on Hover' ),
+			'type'        => 'checkbox',
+			'section'     => 'fsa-slides',
+			'label'       => esc_html__( 'Pause on Hover' ),
 			'description' => esc_html__( 'Pause the slideshow when hovering over slider, then resume when no longer hovering.', 'textdomain' ),
 		) );
 

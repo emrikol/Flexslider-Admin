@@ -31,7 +31,7 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 		$this->meta_box_data = array(
 			'slide_url' => array(
 				'name' => 'slide_url',
-				'std' => '',
+				'std'  => '',
 			),
 		);
 
@@ -50,7 +50,7 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 	 *
 	 * @return void
 	 */
-	function slide_image_box() {
+	public function slide_image_box() {
 		// translators: 1st %d is width in pixels, 2nd %d is height in pixels.
 		$title = sprintf( esc_html__( 'Slide Image (%1$dx%2$d)', 'flexslider-admin' ),
 			absint( apply_filters( 'flexslider_admin_slide_width', 0 ) ),
@@ -66,7 +66,7 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 	 *
 	 * @return void
 	 */
-	function remove_jetpack_likes_metabox() {
+	public function remove_jetpack_likes_metabox() {
 		remove_meta_box( 'sharing_meta', array( $this->cpt ), 'advanced' );
 	}
 
@@ -75,7 +75,7 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 	 *
 	 * @return void
 	 */
-	function remove_permalink_meta_box() {
+	public function remove_permalink_meta_box() {
 		remove_meta_box( 'slugdiv', $this->cpt, 'core' );
 	}
 
@@ -84,8 +84,8 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 	 *
 	 * @return void
 	 */
-	function create_url_meta_box() {
-		add_meta_box( 'flexslider-admin-url-box', esc_html__( 'Slide Link','flexslider-admin' ), array( $this, 'output_url_meta_box' ), $this->cpt, 'normal', 'low' );
+	public function create_url_meta_box() {
+		add_meta_box( 'flexslider-admin-url-box', esc_html__( 'Slide Link', 'flexslider-admin' ), array( $this, 'output_url_meta_box' ), $this->cpt, 'normal', 'low' );
 	}
 
 	/**
@@ -93,12 +93,12 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 	 *
 	 * @return void
 	 */
-	function output_url_meta_box() {
+	public function output_url_meta_box() {
 		global $post;
 
 		foreach ( $this->meta_box_data as $meta_box ) {
-			$nonce = $meta_box['name'] . '_noncename';
-			$meta_name = $meta_box['name'] . '_value';
+			$nonce      = $meta_box['name'] . '_noncename';
+			$meta_name  = $meta_box['name'] . '_value';
 			$meta_value = get_post_meta( $post->ID, $meta_box['name'] . '_value', true );
 
 			if ( '' === trim( $meta_value ) ) {
@@ -107,7 +107,7 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 
 			echo "<input type='hidden' name='" . esc_attr( $nonce ) . "' id='" . esc_attr( $nonce ) . "' value='" . esc_attr( wp_create_nonce( plugin_basename( __FILE__ ) ) ) . "' />";
 			echo "<input type='text' name='" . esc_attr( $meta_name ) . "' value='" . esc_attr( $meta_value ) . "' size='55' /><br />";
-			echo '<p>' . esc_html__( 'Add the URL this slide should link to.','flexslider-admin' ) . '</p>';
+			echo '<p>' . esc_html__( 'Add the URL this slide should link to.', 'flexslider-admin' ) . '</p>';
 		}
 	}
 
@@ -118,7 +118,7 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 	 *
 	 * @return void
 	 */
-	function save_postdata( $post_id ) {
+	public function save_postdata( $post_id ) {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
 		}
@@ -163,7 +163,7 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 	 *
 	 * @return array
 	 */
-	function edit_columns( $columns ) {
+	public function edit_columns( $columns ) {
 		$columns = array(
 			'cb'         => '<input type="checkbox" />',
 			'slide'      => esc_html__( 'Slide Image', 'flexslider-admin' ),
@@ -182,7 +182,7 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 	 *
 	 * @return void
 	 */
-	function custom_columns( $column ) {
+	public function custom_columns( $column ) {
 		global $post;
 
 		switch ( $column ) {

@@ -18,6 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once( dirname( __FILE__ ) . '/inc/class-flexslider-admin.php' );
+require_once dirname( __FILE__ ) . '/inc/class-flexslider-admin.php';
 
 Flexslider_Admin::get_instance();

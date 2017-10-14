@@ -32,7 +32,7 @@ class Flexslider_Admin_CPT extends Flexslider_Admin {
 	 *
 	 * @return void
 	 */
-	function register_cpt() {
+	public function register_cpt() {
 		$labels = array(
 			'name'                  => esc_html_x( 'Slides', 'Post Type General Name', 'flexslider-admin' ),
 			'singular_name'         => esc_html_x( 'Slide', 'Post Type Singular Name', 'flexslider-admin' ),
@@ -64,25 +64,25 @@ class Flexslider_Admin_CPT extends Flexslider_Admin {
 		);
 
 		$args = array(
-			'label'                 => esc_html__( 'Slide', 'flexslider-admin' ),
-			'description'           => esc_html__( 'A list of slides for Flexslider', 'flexslider-admin' ),
-			'labels'                => $labels,
-			'supports'              => array( 'title', 'page-attributes', 'thumbnail' ),
-			'hierarchical'          => false,
-			'public'                => true,
-			'show_ui'               => true,
-			'show_in_menu'          => true,
-			'menu_position'         => 5,
-			'menu_icon'             => 'dashicons-images-alt2',
-			'show_in_admin_bar'     => true,
-			'show_in_nav_menus'     => false,
-			'can_export'            => true,
-			'has_archive'           => false,
-			'exclude_from_search'   => true,
-			'publicly_queryable'    => false,
-			'rewrite'               => false,
-			'capability_type'       => 'page',
-			'show_in_rest'          => true,
+			'label'               => esc_html__( 'Slide', 'flexslider-admin' ),
+			'description'         => esc_html__( 'A list of slides for Flexslider', 'flexslider-admin' ),
+			'labels'              => $labels,
+			'supports'            => array( 'title', 'page-attributes', 'thumbnail' ),
+			'hierarchical'        => false,
+			'public'              => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'menu_position'       => 5,
+			'menu_icon'           => 'dashicons-images-alt2',
+			'show_in_admin_bar'   => true,
+			'show_in_nav_menus'   => false,
+			'can_export'          => true,
+			'has_archive'         => false,
+			'exclude_from_search' => true,
+			'publicly_queryable'  => false,
+			'rewrite'             => false,
+			'capability_type'     => 'page',
+			'show_in_rest'        => true,
 		);
 		register_post_type( $this->cpt, $args );
 	}
@@ -94,7 +94,7 @@ class Flexslider_Admin_CPT extends Flexslider_Admin {
 	 *
 	 * @return array $messages
 	 */
-	function updated_messages( $messages ) {
+	public function updated_messages( $messages ) {
 		$post = get_post();
 
 		$messages[ $this->cpt ] = array(
@@ -124,7 +124,7 @@ class Flexslider_Admin_CPT extends Flexslider_Admin {
 	 *
 	 * @return array $bulk_messages
 	 */
-	function bulk_updated_messages( $bulk_messages, $bulk_counts ) {
+	public function bulk_updated_messages( $bulk_messages, $bulk_counts ) {
 		$bulk_messages['fsa-slide '] = array(
 			// translators: %s is the number of slides updated.
 			'updated'   => esc_html( _n( '%s Slide updated.', '%s Slides updated.', $bulk_counts['updated'] ) ),
