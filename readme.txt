@@ -13,7 +13,7 @@ Provides a simple administrative interface to manage slides for Flexslider.
 
 == Description ==
 
-[Flexslider](https://woocommerce.com/flexslider/) is a very powerful jQuery slider toolkit.  While there [are plugins](https://woocommerce.com/products/wooslider/) that can provide a robust interface to manage slides, I needed something a lot simpler.
+[Flexslider](https://woocommerce.com/flexslider/) is a very powerful jQuery slider toolkit.  While there [are plugins](https://woocommerce.com/products/wooslider/) that can provide a robust interface to manage slides, I needed something a lot simpler.  Some code borrowed from [Meteor Slides](https://github.com/JLeuze/Meteor-Slides) :D
 
 This plugin **WILL NOT**:
 
