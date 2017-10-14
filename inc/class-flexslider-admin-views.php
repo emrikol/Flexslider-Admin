@@ -53,7 +53,21 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 	public function slide_image_box() {
 		// translators: 1st %d is width in pixels, 2nd %d is height in pixels.
 		$title = sprintf( esc_html__( 'Slide Image (%1$dx%2$d)', 'flexslider-admin' ),
+			/**
+			 * Filters the width shown in the Slide editor.
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param int $width Image width in pixels.  Defaults to 0.
+			 */
 			absint( apply_filters( 'flexslider_admin_slide_width', 0 ) ),
+			/**
+			 * Filters the height shown in the Slide editor.
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param int $height Image height in pixels.  Defaults to 0.
+			 */
 			absint( apply_filters( 'flexslider_admin_slide_height', 0 ) )
 		);
 
@@ -127,20 +141,22 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 			return;
 		}
 
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return $post_id;
+		}
+
 		global $post;
 
 		foreach ( $this->meta_box_data as $meta_box ) {
-			$nonce = isset( $_POST[ $meta_box['name'] . '_noncename' ] ) ? $_POST[ $meta_box['name'] . '_noncename' ] : false; //@codingStandardsIgnoreLine.
-			$meta_name = $meta_box['name'] . '_value';
-			$meta_value = sanitize_text_field( $_POST[ $meta_name ] ); //@codingStandardsIgnoreLine.
-
-			if ( ! wp_verify_nonce( $nonce, plugin_basename( __FILE__ ) ) ) {
+			if (
+				isset( $_POST[ $meta_box['name'] . '_noncename' ] ) // Input var okay.
+				&& ! wp_verify_nonce( sanitize_key( $_POST[ $meta_box['name'] . '_noncename' ] ), plugin_basename( __FILE__ ) ) // Input var okay.
+			) {
 				return $post_id;
 			}
 
-			if ( ! current_user_can( 'edit_post', $post_id ) ) {
-				return $post_id;
-			}
+			$meta_name  = $meta_box['name'] . '_value';
+			$meta_value = isset( $_POST[ $meta_name ] ) ? sanitize_text_field( wp_unslash( $_POST[ $meta_name ] ) ) : false; // Input var okay.
 
 			if ( '' === trim( $meta_value ) ) {
 				delete_post_meta( $post_id, $meta_name );
@@ -187,6 +203,14 @@ class Flexslider_Admin_Views extends Flexslider_Admin {
 
 		switch ( $column ) {
 			case 'slide':
+				/**
+				 * Filters the size of the Slide thumbnals in wp-admin.
+				 *
+				 * @since 1.0.0
+				 *
+				 * @param string|array $size Image size to retrieve. Accepts any valid image size, or an array of
+				 *                           width and height values in pixels (in that order). Default 'thumbnail'.
+				 */
 				echo the_post_thumbnail( apply_filters( 'flexslider_admin_thumbnail_size', 'thumbnail' ) );
 				break;
 			case 'slide-link':

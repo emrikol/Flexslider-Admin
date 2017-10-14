@@ -127,15 +127,15 @@ class Flexslider_Admin_CPT extends Flexslider_Admin {
 	public function bulk_updated_messages( $bulk_messages, $bulk_counts ) {
 		$bulk_messages['fsa-slide '] = array(
 			// translators: %s is the number of slides updated.
-			'updated'   => esc_html( _n( '%s Slide updated.', '%s Slides updated.', $bulk_counts['updated'] ) ),
+			'updated'   => esc_html( _n( '%s Slide updated.', '%s Slides updated.', $bulk_counts['updated'], 'flexslider-admin' ) ),
 			// translators: %s is the number of slides not updated.
-			'locked'    => esc_html( _n( '%s Slide not updated, somebody is editing it.', '%s Slides not updated, somebody is editing them.', $bulk_counts['locked'] ) ),
+			'locked'    => esc_html( _n( '%s Slide not updated, somebody is editing it.', '%s Slides not updated, somebody is editing them.', $bulk_counts['locked'], 'flexslider-admin' ) ),
 			// translators: %s is the number of slides deleted.
-			'deleted'   => esc_html( _n( '%s Slide permanently deleted.', '%s Slides permanently deleted.', $bulk_counts['deleted'] ) ),
+			'deleted'   => esc_html( _n( '%s Slide permanently deleted.', '%s Slides permanently deleted.', $bulk_counts['deleted'], 'flexslider-admin' ) ),
 			// translators: %s is the number of slides moved to trash.
-			'trashed'   => esc_html( _n( '%s Slide moved to the Trash.', '%s Slides moved to the Trash.', $bulk_counts['trashed'] ) ),
+			'trashed'   => esc_html( _n( '%s Slide moved to the Trash.', '%s Slides moved to the Trash.', $bulk_counts['trashed'], 'flexslider-admin' ) ),
 			// translators: %s is the number of slides restored from trash.
-			'untrashed' => esc_html( _n( '%s Slide restored from the Trash.', '%s Slides restored from the Trash.', $bulk_counts['untrashed'] ) ),
+			'untrashed' => esc_html( _n( '%s Slide restored from the Trash.', '%s Slides restored from the Trash.', $bulk_counts['untrashed'], 'flexslider-admin' ) ),
 		);
 
 		return $bulk_messages;

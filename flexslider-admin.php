@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Flexslider Admin
  * Plugin URI: https://github.com/emrikol/Flexslider-Admin
- * Description: A wp-admin interface to manage slides for Flexslider.  Does not include a frontend function.  It will need to be coded manually, please see docs, once they're created.
+ * Description: Provides a simple administrative interface to manage slides for Flexslider.
  * Version: 1.0.0
  * Text Domain: flexslider-admin
  * Author: Derrick Tennant

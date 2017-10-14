@@ -33,7 +33,7 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 	 */
 	public function customize_register( $wp_customize ) {
 		$wp_customize->add_section( 'fsa-slides', array(
-			'title' => esc_html__( 'Slider', 'textdomain' ),
+			'title' => esc_html__( 'Slider', 'flexslider-admin' ),
 		) );
 
 		// Animation Type.
@@ -47,8 +47,8 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 			'section' => 'fsa-slides',
 			'label'   => esc_html__( 'Animation Type' ),
 			'choices' => array(
-				'fade'  => esc_html__( 'Fade', 'textdomain' ),
-				'slide' => esc_html__( 'Slide', 'textdomain' ),
+				'fade'  => esc_html__( 'Fade', 'flexslider-admin' ),
+				'slide' => esc_html__( 'Slide', 'flexslider-admin' ),
 			),
 		) );
 
@@ -62,10 +62,10 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 			'type'        => 'select',
 			'section'     => 'fsa-slides',
 			'label'       => esc_html__( 'Easing Animation' ),
-			'description' => esc_html__( 'Easing specifies the speed at which the animation progresses at different points within the animation.', 'textdomain' ),
+			'description' => esc_html__( 'Easing specifies the speed at which the animation progresses at different points within the animation.', 'flexslider-admin' ),
 			'choices'     => array(
-				'swing'  => esc_html__( 'Swing', 'textdomain' ),
-				'linear' => esc_html__( 'Linear', 'textdomain' ),
+				'swing'  => esc_html__( 'Swing', 'flexslider-admin' ),
+				'linear' => esc_html__( 'Linear', 'flexslider-admin' ),
 			),
 		) );
 
@@ -78,10 +78,10 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		$wp_customize->add_control( 'fsa-slides_direction', array(
 			'type'    => 'select',
 			'section' => 'fsa-slides',
-			'label'   => esc_html__( 'Animation Direction' ),
+			'label'   => esc_html__( 'Animation Direction', 'flexslider-admin' ),
 			'choices' => array(
-				'horizontal' => esc_html__( 'Horizontal', 'textdomain' ),
-				'vertical'   => esc_html__( 'Vertical', 'textdomain' ),
+				'horizontal' => esc_html__( 'Horizontal', 'flexslider-admin' ),
+				'vertical'   => esc_html__( 'Vertical', 'flexslider-admin' ),
 			),
 		) );
 
@@ -93,8 +93,8 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		$wp_customize->add_control( 'fsa-slides_speed', array(
 			'type'        => 'number',
 			'section'     => 'fsa-slides',
-			'label'       => esc_html__( 'Slideshow Speed' ),
-			'description' => esc_html__( 'Set the speed of the slideshow cycling, in seconds.', 'textdomain' ),
+			'label'       => esc_html__( 'Slideshow Speed', 'flexslider-admin' ),
+			'description' => esc_html__( 'Set the speed of the slideshow cycling, in seconds.', 'flexslider-admin' ),
 			'input_attrs' => array(
 				'min'  => 0.1,
 				'max'  => 60,
@@ -110,8 +110,8 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		$wp_customize->add_control( 'fsa-slides_animation_speed', array(
 			'type'        => 'number',
 			'section'     => 'fsa-slides',
-			'label'       => esc_html__( 'Animation Speed' ),
-			'description' => esc_html__( 'Set the speed of animations, in seconds.', 'textdomain' ),
+			'label'       => esc_html__( 'Animation Speed', 'flexslider-admin' ),
+			'description' => esc_html__( 'Set the speed of animations, in seconds.', 'flexslider-admin' ),
 			'input_attrs' => array(
 				'min'  => 0.1,
 				'max'  => 10,
@@ -127,8 +127,8 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		$wp_customize->add_control( 'fsa-slides_start_delay', array(
 			'type'        => 'number',
 			'section'     => 'fsa-slides',
-			'label'       => esc_html__( 'Start Delay' ),
-			'description' => esc_html__( 'Set an initialization delay, in seconds.', 'textdomain' ),
+			'label'       => esc_html__( 'Start Delay', 'flexslider-admin' ),
+			'description' => esc_html__( 'Set an initialization delay, in seconds.', 'flexslider-admin' ),
 			'input_attrs' => array(
 				'min'  => 0.1,
 				'max'  => 60,
@@ -144,7 +144,7 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		$wp_customize->add_control( 'fsa-slides_reverse', array(
 			'type'    => 'checkbox',
 			'section' => 'fsa-slides',
-			'label'   => esc_html__( 'Reverse the animation direction' ),
+			'label'   => esc_html__( 'Reverse the animation direction', 'flexslider-admin' ),
 		) );
 
 		// Randomize Slides.
@@ -155,7 +155,7 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		$wp_customize->add_control( 'fsa-slides_randomize', array(
 			'type'    => 'checkbox',
 			'section' => 'fsa-slides',
-			'label'   => esc_html__( 'Randomize slide order' ),
+			'label'   => esc_html__( 'Randomize slide order', 'flexslider-admin' ),
 		) );
 
 		// Pause on Interaction.
@@ -166,8 +166,8 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		$wp_customize->add_control( 'fsa-slides_pause_interaction', array(
 			'type'        => 'checkbox',
 			'section'     => 'fsa-slides',
-			'label'       => esc_html__( 'Pause on Interaction' ),
-			'description' => esc_html__( 'Pause the slideshow when interacting with control elements, highly recommended.', 'textdomain' ),
+			'label'       => esc_html__( 'Pause on Interaction', 'flexslider-admin' ),
+			'description' => esc_html__( 'Pause the slideshow when interacting with control elements, highly recommended.', 'flexslider-admin' ),
 		) );
 
 		// Pause on Hover.
@@ -178,8 +178,8 @@ class Flexslider_Admin_Customizer extends Flexslider_Admin {
 		$wp_customize->add_control( 'fsa-slides_pause_hover', array(
 			'type'        => 'checkbox',
 			'section'     => 'fsa-slides',
-			'label'       => esc_html__( 'Pause on Hover' ),
-			'description' => esc_html__( 'Pause the slideshow when hovering over slider, then resume when no longer hovering.', 'textdomain' ),
+			'label'       => esc_html__( 'Pause on Hover', 'flexslider-admin' ),
+			'description' => esc_html__( 'Pause the slideshow when hovering over slider, then resume when no longer hovering.', 'flexslider-admin' ),
 		) );
 
 	}
