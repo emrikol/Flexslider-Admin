@@ -34,48 +34,48 @@ There are three filters that should be added:
 One example of how to set up the plugin:
 
 ```php
-if ( class_exists( \'Flexslider_Admin\' ) ) {
+if ( class_exists( 'Flexslider_Admin' ) ) {
 	$sizes = array(
 		array(
-			\'name\'   => \'slides\',
-			\'width\'  => 750,
-			\'height\' => 422,
-			\'crop\'   => true,
+			'name'   => 'slides',
+			'width'  => 750,
+			'height' => 422,
+			'crop'   => true,
 		),
 		array(
-			\'name\'   => \'slides-thumbnail\',
-			\'width\'  => \'150\',
-			\'height\' => \'84\',
-			\'crop\'   => true,
+			'name'   => 'slides-thumbnail',
+			'width'  => '150',
+			'height' => '84',
+			'crop'   => true,
 		),
 	);
 
 	Flexslider_Admin_Views::add_sizes( $sizes );
-	add_filter( \'flexslider_admin_slide_width\', function( $width ) {
+	add_filter( 'flexslider_admin_slide_width', function( $width ) {
 		return 750;
 	} );
-	add_filter( \'flexslider_admin_slide_height\', function( $height ) {
+	add_filter( 'flexslider_admin_slide_height', function( $height ) {
 		return 422;
 	} );
 
-	add_filter( \'flexslider_admin_thumbnail_size\', function ( $size ) {
-		return \'slides-thumbnail\';
+	add_filter( 'flexslider_admin_thumbnail_size', function ( $size ) {
+		return 'slides-thumbnail';
 	} );
 }
 ```
 
 ```php
 $flexslider_vars = array(
-	\'data\' => array(
-		\'animation\'      => get_theme_mod( \'fsa-slides_animation\', \'fade\' ),
-		\'easing\'         => get_theme_mod( \'fsa-slides_easing\', \'swing\' ),
-		\'direction\'      => get_theme_mod( \'fsa-slides_direction\', \'horizontal\' ),
-		\'slideshowSpeed\' => ( get_theme_mod( \'fsa-slides_speed\' ) ? get_theme_mod( \'fsa-slides_speed\' ) : 7 ) * 1000,
-		\'animationSpeed\' => ( get_theme_mod( \'fsa-slides_animation_speed\' ) ? get_theme_mod( \'fsa-slides_animation_speed\' ) : .6 ) * 1000,
-		\'initDelay\'      => ( get_theme_mod( \'fsa-slides_start_delay\' ) ? get_theme_mod( \'fsa-slides_start_delay\' ) : 0 ) * 1000,
-		\'reverse\'        => get_theme_mod( \'fsa-slides_reverse\' ) ? get_theme_mod( \'fsa-slides_reverse\' ) : false,
-		\'pauseOnAction\'  => get_theme_mod( \'fsa-slides_pause_interaction\' ) ? get_theme_mod( \'fsa-slides_pause_interaction\' ) : false,
-		\'pauseOnHover\'   => get_theme_mod( \'fsa-slides_pause_hover\' ) ? get_theme_mod( \'fsa-slides_pause_hover\' ) : true,
+	'data' => array(
+		'animation'      => get_theme_mod( 'fsa-slides_animation', 'fade' ),
+		'easing'         => get_theme_mod( 'fsa-slides_easing', 'swing' ),
+		'direction'      => get_theme_mod( 'fsa-slides_direction', 'horizontal' ),
+		'slideshowSpeed' => ( get_theme_mod( 'fsa-slides_speed' ) ? get_theme_mod( 'fsa-slides_speed' ) : 7 ) * 1000,
+		'animationSpeed' => ( get_theme_mod( 'fsa-slides_animation_speed' ) ? get_theme_mod( 'fsa-slides_animation_speed' ) : .6 ) * 1000,
+		'initDelay'      => ( get_theme_mod( 'fsa-slides_start_delay' ) ? get_theme_mod( 'fsa-slides_start_delay' ) : 0 ) * 1000,
+		'reverse'        => get_theme_mod( 'fsa-slides_reverse' ) ? get_theme_mod( 'fsa-slides_reverse' ) : false,
+		'pauseOnAction'  => get_theme_mod( 'fsa-slides_pause_interaction' ) ? get_theme_mod( 'fsa-slides_pause_interaction' ) : false,
+		'pauseOnHover'   => get_theme_mod( 'fsa-slides_pause_hover' ) ? get_theme_mod( 'fsa-slides_pause_hover' ) : true,
 	),
 );
 
